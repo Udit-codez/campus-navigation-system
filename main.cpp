@@ -134,21 +134,23 @@ private:
     }
 };
 
-static CampusGraph buildSampleCampus() {
+static CampusGraph buildCampus() {
     CampusGraph g;
-    // Replace with your real campus buildings and measured distances.
-    g.addPath("Main Gate", "Admin Block", 150);
-    g.addPath("Main Gate", "Parking", 80);
-    g.addPath("Parking", "Canteen", 120);
-    g.addPath("Admin Block", "Library", 100);
-    g.addPath("Admin Block", "Canteen", 90);
-    g.addPath("Library", "CS Block", 60);
-    g.addPath("Canteen", "CS Block", 200);
-    g.addPath("Canteen", "Auditorium", 110);
-    g.addPath("CS Block", "Auditorium", 140);
-    g.addPath("Auditorium", "Hostel", 250);
-    g.addPath("Library", "Hostel", 400);
-    g.addLocation("Old Annex");  // deliberately disconnected (edge case)
+    // USAR / GGSIPU Dwarka campus, read from Google Maps satellite screenshots.
+    // Distances are ESTIMATES in metres along walkable roads/paths. Verify them with the
+    // Google Maps "Measure distance" tool and adjust the numbers if needed.
+    g.addPath("Gurdwara Rd Gate", "USAP Block", 90);
+    g.addPath("Gurdwara Rd Gate", "USDI Block", 150);
+    g.addPath("Gurdwara Rd Gate", "Auditorium", 380);
+    g.addPath("USAP Block", "USDI Block", 110);
+    g.addPath("USAP Block", "USAR Block", 120);
+    g.addPath("USDI Block", "Sports Hall", 110);
+    g.addPath("Sports Hall", "Boys Hostel", 170);
+    g.addPath("Boys Hostel", "USAR Ground", 190);
+    g.addPath("USAR Ground", "Admin Block", 220);
+    g.addPath("Admin Block", "USAR Block", 80);
+    g.addPath("USAR Block", "Auditorium", 200);
+    g.addPath("Auditorium", "Main Gate", 60);
     return g;
 }
 
@@ -163,7 +165,7 @@ static void show(const string& label, bool found, const vector<string>& path, in
 }
 
 int main() {
-    CampusGraph g = buildSampleCampus();
+    CampusGraph g = buildCampus();
     cout << "Locations: ";
     auto names = g.locations();
     for (size_t i = 0; i < names.size(); ++i) cout << (i ? ", " : "") << names[i];
