@@ -9,7 +9,7 @@ Claude (Anthropic) for the initial scaffold of `main.cpp`, README.md and DECISIO
 - First drafts of README and DECISIONS
 
 ## What I did myself
-<!-- Fill in honestly, e.g. replaced the sample graph with real campus locations and measured distances, traced Dijkstra by hand on paper, added my own tests. -->
+- Picked the campus locations from Google Maps, chose the paths and estimated the distances, tested routes, and changed the gate names.
 
 ## What I can explain
-<!-- e.g. why the heap is used, why stale entries are skipped, why weights must be positive, the complexity table. -->
+- How the graph is stored, why Dijkstra needs positive weights, why BFS can give a longer walk, and the complexity table.
